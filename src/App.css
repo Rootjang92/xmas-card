@@ -1,38 +1,243 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+#xmas-container {
+  display: inline-block;
+  margin-top: 1rem;
 }
 
-@keyframes App-logo-spin {
+#typing {
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 50px rgba(#ffffff, 0.5);
+  color: #ffffff;
+  z-index: 10;
+  opacity: 0.9;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 2rem;
+  font-family: "Trebuchet MS" sans-serif;
+  width: 0;
+  animation: typing 3s infinite;
+}
+
+#message {
+  margin-top: 20px;
+  color: #ffffff;
+  text-align: center;
+  white-space: inherit;
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: bold;
+}
+
+#message div {
+  font-size: 1.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#message div:nth-child(1) {
+  width: 0;
+  -webkit-animation: type 2s forwards;
+  animation: type 2s forwards;
+  animation-delay: 3s;
+}
+
+#message div:nth-child(2) {
+  width: 0;
+  -webkit-animation: type 2s forwards;
+  animation: type 2s forwards;
+  animation-delay: 5s;
+}
+
+#message div:nth-child(3) {
+  width: 0;
+  -webkit-animation: type 2s forwards;
+  animation: type 2s forwards;
+  animation-delay: 7s;
+}
+
+.santa {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plane {
+  position: relative;
+  -webkit-animation: float 3s infinite;
+  animation: float 3s infinite;
+}
+
+.hand {
+  -webkit-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  transform: rotate(10deg);
+  -webkit-animation: wave 1.5s infinite;
+  animation: wave 1.5s infinite;
+  -webkit-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center;
+}
+
+.blade {
+  -webkit-animation: spin 1s infinite linear;
+  animation: spin 1s infinite linear;
+  -webkit-transform-origin: 50% 54%;
+  -ms-transform-origin: 50% 54%;
+  transform-origin: 50% 54%;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.pause {
+  margin-top: 10px;
+}
+
+.play,
+.pause {
+  background: #1aab8a;
+  color: #fff;
+  border: none;
+  position: relative;
+  height: 30px;
+  font-size: 1.2rem;
+  padding: 0 2em;
+  cursor: pointer;
+  transition: 800ms ease all;
+  outline: none;
+}
+
+.play:hover {
+  background: #fff;
+  color: #1aab8a;
+}
+
+.play:before,
+.play:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #1aab8a;
+  transition: 400ms ease all;
+}
+
+.play:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+
+.play:hover:before,
+.play:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
+}
+
+figcaption {
+  color: #ffffff;
+}
+
+#carol {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+@-webkit-keyframes typing {
   from {
-    transform: rotate(0deg);
+    width: 0;
   }
+
   to {
-    transform: rotate(360deg);
+    width: 100%;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes type {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@-webkit-keyframes type {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@-webkit-keyframes float {
+  50% {
+    -webkit-transform: translateY(25px);
+    transform: translateY(25px);
+  }
+}
+
+@keyframes float {
+  50% {
+    -webkit-transform: translateY(25px);
+    transform: translateY(25px);
+  }
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotateX(360deg);
+    transform: rotateX(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotateX(360deg);
+    transform: rotateX(360deg);
+  }
+}
+
+@-webkit-keyframes wave {
+  50% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes wave {
+  50% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
   }
 }
