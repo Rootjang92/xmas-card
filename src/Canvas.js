@@ -81,7 +81,7 @@ function Canvas() {
 
       render() {
         ctx.save();
-        const { x, y, angle, size } = this;
+        const { x, y, size } = this;
         ctx.beginPath();
         ctx.arc(x, y, size * 0.2, 0, Math.PI * 2, false);
         ctx.fill();
